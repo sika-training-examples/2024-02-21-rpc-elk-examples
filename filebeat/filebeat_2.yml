@@ -1,0 +1,15 @@
+filebeat.inputs:
+  - type: filestream
+    paths:
+      - /tmp/default.log
+      - /var/log/syslog
+      - /var/log/*.log
+  - type: container
+    paths:
+      - "/var/lib/docker/containers/*/*.log"
+
+output.elasticsearch:
+  hosts:
+    - https://es.k8s.sikademo.com:443
+  username: elastic
+  password: Mc48Y45YXva5PUv5jyf5P738
